@@ -43,7 +43,7 @@ Split the dataset into training, validation, and test sets (e.g., 70%, 20%, 10%)
 
 Evaluation Metrics:
 Use precision, recall, F1 score, and accuracy to measure the model's performance on the test set.
-Apply a confusion matrix to analyze false positives and false negatives.
+Data Augmentation: To ensure robust data augmentation techniques will be applied during training. Examples include random rotations, flips, brightness adjustments, and zooms to simulate real-world variations and increase model generalizability. Apply a confusion matrix to analyze false positives and false negatives.
 
 Visual Inspection:
 Validate predictions by visually inspecting misclassified images to identify patterns or potential dataset biases.
