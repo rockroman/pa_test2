@@ -1,10 +1,9 @@
 ## Project Overview
-This project showcases how predictive analytics can be applied in an agricultural setting. 
-For this project, a fictitious user story was created whereby Farmy Foods has a powdery mildew issue with their the cherry plantation crop- one of the finest products in their portfolio. The company is concerned about loss in revenue through supplying the market with a poor quality product and also realises that the monitoring of crops by employees for powdery mildew is not scalable.
+This project demonstrates how predictive analytics can optimize agricultural operations. The focus is on addressing a fictitious scenario where Farmy Foods faces powdery mildew issues in their cherry plantations, a key product in their portfolio. The project aims to minimize revenue loss from poor-quality produce and streamline the monitoring process, which is currently manual and unsustainable.
 
 ## Dataset Content
 
-The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). It contains 4,208 images of cherry leaves taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew, a fungal disease that affects many plant species. 
+The dataset, sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves) contains 4,208 images of cherry leaves categorized as healthy or infected with powdery mildew, a fungal disease affecting many plants. 
 
 ## Business Requirements
 
@@ -12,22 +11,26 @@ The cherry plantation crop from Farmy & Foods is facing a challenge where their 
 
 To save time in this process, the IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
 
-- 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
-- 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
-- 3 - The client requires a dashboard as opposed to an API endpoint.
+The goal is to develop an ML-based solution to address powdery mildew in cherry plantations by:
+1) Differentiating visually between healthy and infected cherry leaves.
+2) Predicting if a cherry leaf is healthy or infected based on an image.
+3) Creating a dashboard for user interaction, rather than relying on API endpoints.
+
+This initiative is scalable and could extend to other crops, enhancing operational efficiency and market quality.
 
 # Outcomes Required
-The client is looking for a successful outcome this would be:
-	- A study showing how to visually differentiate a cherry leaf that is healthy from one that contains powdery mildew.
-    - The capability to predict if a cherry leaf is healthy or contains powdery mildew.
-	- We agreed with the client a degree of 97% accuracy.
-# Wider benefits of the project
-	- Supplying the market with high quality cherries.
-	- The client will save money on the staff time to check for powdery mildew identification and be able to effectively target compromised plants with specific compounds where necessary.
+- The project aims to:
+- Provide a visual study differentiating healthy and infected leaves.
+- Achieve a model prediction accuracy of at least 97%.
 
 ## Hypothesis and how to validate?
-We suspect powdery mildew on the leaves of cherry trees have clear signs of infection, typically a leaf that may be shrivelled with white discolouration and/or spotting.
-	- An average image study can help to investigate it.
+Hypothesis: Powdery mildew manifests visibly through signs like shriveling, white discoloration, or spotting on leaves.
+
+Validation Steps:
+- Use the dataset to train a binary classification model.
+- Conduct image analysis to confirm visual differences.
+- Evaluate the model using metrics like accuracy, precision, recall, and F1 score, aiming for >97% accuracy.
+- Apply k-fold cross-validation to ensure robustness.
 
 Dataset Preparation:
 
@@ -54,16 +57,15 @@ If accuracy is low, investigate feature extraction, dataset quality, or other co
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
-### Business Requirement 1 ### Data Visualization
-	- Analyze and display the average images and variability (mean and standard deviation) for each class (healthy or powdery mildew)
-	- Display the differences between average healthy and average powdery mildew infected cherry leaf.
-    - Create an image montage for each, 'healthy' and 'unhealthy' leaves.
+### Business Requirement 1 ### Visual Differentiation
+- Generate visualizations comparing average healthy and infected leaves.
+- Create montages to highlight class differences.
+
 
 ### Business Requirement 2 ### Classification
-	- Deliver an ML system that is capable of predicting whether a cherry leaf is healthy or contains powdery mildew to a 97% accuracy rate.
-	- The case for a Neural Network to map the relationships between the features and the labels.
-	- We want to build a binary classifier and generate reports.
-	- Perform k-fold cross-validation to ensure robustness and generalizability of the model.
+- Develop a neural network model capable of distinguishing between healthy and infected leaves.
+- Target accuracy: ≥97% for effective real-world deployment.
+- Performance validation through k-fold cross-validation and confusion matrix analysis, identifying false positives/negatives to fine-tune the model.
 
 
 ## ML Business Case
@@ -157,4 +159,11 @@ The current way to diagnose requires experienced staff and lengthly inspection t
 - Thank the people who provided support throughout this project.
 
 ## Future Plans
-If this model was part of a larger app with weather data to allow the client to predict when the likelihood of an outbreak could occur, this would add value to the app. Eg: https://www.onsetcomp.com/partners/AWN : AgWeatherNet (AWN) is a valuable resource that supports agriculture in Washington State by providing weather data and decision-support tools to support production, efficiency, and profitability while also promoting environmental sustainability. AWN plays a crucial role in helping farmers, gardeners, researchers, and policymakers make informed decisions related to weather and agriculture.
+1) Integration of Weather Data:
+Utilize platforms like AgWeatherNet to correlate weather conditions with powdery mildew outbreaks, enabling predictive interventions, as these outbreaks tend to occur on new season buds and leaves (following rainfall) and on the mature fruit prior to harvest.
+
+2) Mobile and IoT Solutions:
+Deploy lightweight versions of the model on mobile apps or IoT devices for in-field detection, reducing latency and reliance on centralized processing.
+
+3) Dataset Expansion:
+Extend the dataset to include other crops like apples and peaches, enabling broader applications across Farmy Foods' operations.
