@@ -1,51 +1,9 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-## Template Instructions
-
-Welcome,
-
-This is the Code Institute student template for the Cherry Leaves project option in Predictive Analytics. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
-
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
-
-## How to use this repo
-
-1. Use this template to create your GitHub project repo
-
-1. Log into your cloud IDE with your GitHub account.
-
-1. On your Dashboard, click on the New Workspace button
-
-1. Paste in the URL you copied from GitHub earlier
-
-1. Click Create
-
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and `pip3 install -r requirements.txt`
-
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
-
-1. Click the kernel button and choose Python Environments.
-
-Note that the kernel says Python 3.8.18 as it inherits from the workspace, so it will be Python-3.8.18 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
-
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, then you can create a new one with _Regenerate API Key_.
 
 ## Dataset Content
 
 - The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
-- The dataset contains +4 thousand images taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew, a fungal disease that affects many plant species. The cherry plantation crop is one of the finest products in their portfolio, and the company is concerned about supplying the market with a compromised quality product.
+- The dataset contains 4,208 images of cherry leaves taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew, a fungal disease that affects many plant species. The cherry plantation crop is one of the finest products in their portfolio, and the company is concerned about supplying the market with a compromised quality product.
 
 ## Business Requirements
 
@@ -55,23 +13,101 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 - 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
 - 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+- 3 - The client requires a dashboard as opposed to an API endpoint.
+- 4 -  The client is looking for a successful outcome this would be:
+	- A study showing how to visually differentiate a cherry leaf that is healthy from one that contains powdery mildew.
+    - The capability to predict if a cherry leaf is healthy or contains powdery mildew.
+	- We agreed with the client a degree of 97% accuracy.
+	- The client will then not supply the market with a product of compromised quality.
+	- The client will save time and money on powdery mildew identification and staff time and be able to effectively target compromised plants with specific compounds where 	necessary.
 
 ## Hypothesis and how to validate?
+We suspect powdery mildew on the leaves of cherry trees have clear signs of infection, typically a leaf that may be shrivelled with white discolouration and/or spotting.
+A average image study can help to investigate it.
 
-- List here your project hypothesis(es) and how you envision validating it (them).
+Dataset Preparation:
+
+Compile a labeled dataset of cherry tree leaves, categorized into "Healthy" and "Infected" classes.
+Ensure the dataset is diverse, representing various lighting conditions, angles, and leaf conditions. If the dataset is too small create extra images.
+
+Model Training and Testing:
+Train a neural network model on the dataset using a supervised learning approach.
+Split the dataset into training, validation, and test sets (e.g., 70%, 20%, 10%).
+
+Evaluation Metrics:
+Use precision, recall, F1 score, and accuracy to measure the model's performance on the test set.
+Apply a confusion matrix to analyze false positives and false negatives.
+
+Visual Inspection:
+Validate predictions by visually inspecting misclassified images to identify patterns or potential dataset biases.
+
+Cross-Validation:
+Perform k-fold cross-validation to ensure robustness and generalizability of the model.
+
+Hypothesis Support:
+If the model achieves high accuracy (e.g., >97%) in distinguishing healthy and infected leaves, the hypothesis is supported.
+If accuracy is low, investigate feature extraction, dataset quality, or other confounding variables.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
 - List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+### Business Requirement 1 ### Data Visualization
+	- Analyze the average images and variability (mean and standard deviation) for each class (healthy or powdery mildew).
+	- Analyse the differences between average healthy and average powdery mildew cherry leaves.
+    - Create an image montage for each class.
+
+### Business Requirement 2 ### Classification
+	- Deliver an ML system that is capable of predicting whether a cherry leaf is healthy or contains powdery mildew to a 97% accuracy rate.
+	- The case for a Neural Network to map the relationships between the features and the labels.
+	- We want to build a binary classifier and generate reports.
+	- Perform k-fold cross-validation to ensure robustness and generalizability of the model.
+
 
 ## ML Business Case
 
 - In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+* We want a ML model to predict if a leaf is infected with powdery mildew or not, based on historical image data. It is a supervised model, a 2-class, single-label, classification model. The data would align with a binary classifier, indicating whether a particular cherry leaf is healthy or contains powdery mildew.
+- The model input is a cherry leaf image and the model output is a prediction of whether the cherry leaf is healthy or contains powdery mildew.
 
-## Dashboard Design
+Heuristics: 
+The current diagnostic needs an experienced staff and lengthly inspection times across orchards to distinguish healthy or infected leaves. This process is not scalable.
+* The training data to fit the model came from Kaggle. This dataset contains 4,208 images. We have extracted all images from this dataset and added to this with synthetic data.
 
-- List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-- Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
+## Dashboard Design (Streamlit App User Interface)
+
+### Page 1: Project Summary
+* Quick project summary
+	* General Information
+		* What is Powdery mildew and how does it present itself in cherry tree leaves.
+		* Usually identification of infected leaves is a manual process conducted by the employee of the orchard.
+		* Stats on numbers of trees infected.
+	* Project Dataset
+		* The available dataset contains 4k images of leaves.
+	* Link to addition information
+	* Business requirements
+		*  The client is interested in ...
+		*  The client is interested to know...
+
+### Page 2: Leaf Visualiser
+* It will answer business requirement 1
+	* Checkbox 1 - Difference between average and variability image
+	* Checkbox 2 - Differences between average mildew and average healthy leaves
+	* Checkbox 3 - Image Montage
+
+### Page 3: Mildew Detector
+* Business requirement 2 information - "The client is interested to tell whether a leaf is infected with powdery mildew or not.
+* Link to download a set of mildew infected and healthy leaf images for live prediction.
+* User Interface with a file uploader widget. The user should upload multiple leaf images. It will display the image and a prediction statement, indicating if the leaf is infected or not with mildew and the probability associated with this statement. 
+* Table with image name and prediction results.
+* Download button to download table.
+
+### Page 4: Project Hypothesis and Validation
+* Bloack for each project hypothesis, describe the conclusion and how you validated.
+
+### Page 5: ML Performance Metrics
+* Label Frequencies for Train, Validation and Test Sets
+* Model History - Accuracy and Losses
+* Model evaluation result
 
 ## Unfixed Bugs
 
@@ -95,6 +131,7 @@ To save time in this process, the IT team suggested an ML system that detects in
 ## Main Data Analysis and Machine Learning Libraries
 
 - Here, you should list the libraries used in the project and provide an example(s) of how you used these libraries.
+- It should be noted that the client provided the data under an NDA (non-disclosure agreement), therefore the data should only be shared with professionals that are officially involved in the project. To comply with this the data has been added to the git.ignore file.
 
 ## Credits
 
@@ -115,3 +152,6 @@ To save time in this process, the IT team suggested an ML system that detects in
 ## Acknowledgements (optional)
 
 - Thank the people who provided support throughout this project.
+
+## Future Plans
+If this model was part of a larger app with weather data to allow the client to predict when the likelihood of an outbreak could occur, this would add value to the app. Eg: https://www.onsetcomp.com/partners/AWN : AgWeatherNet (AWN) is a valuable resource that supports agriculture in Washington State by providing weather data and decision-support tools to support production, efficiency, and profitability while also promoting environmental sustainability. AWN plays a crucial role in helping farmers, gardeners, researchers, and policymakers make informed decisions related to weather and agriculture.
