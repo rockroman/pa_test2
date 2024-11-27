@@ -1,9 +1,10 @@
-
+## Project Overview
+This project showcases how predictive analytics can be applied in an agricultural setting. 
+For this project, a fictitious user story was created whereby Farmy Foods has a powdery mildew issue with their the cherry plantation crop- one of the finest products in their portfolio. The company is concerned about loss in revenue through supplying the market with a poor quality product and also realises that the monitoring of crops by employees for powdery mildew is not scalable.
 
 ## Dataset Content
 
-- The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
-- The dataset contains 4,208 images of cherry leaves taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew, a fungal disease that affects many plant species. The cherry plantation crop is one of the finest products in their portfolio, and the company is concerned about supplying the market with a compromised quality product.
+The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). It contains 4,208 images of cherry leaves taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew, a fungal disease that affects many plant species. 
 
 ## Business Requirements
 
@@ -14,16 +15,19 @@ To save time in this process, the IT team suggested an ML system that detects in
 - 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
 - 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 - 3 - The client requires a dashboard as opposed to an API endpoint.
-- 4 -  The client is looking for a successful outcome this would be:
+
+# Outcomes Required
+The client is looking for a successful outcome this would be:
 	- A study showing how to visually differentiate a cherry leaf that is healthy from one that contains powdery mildew.
     - The capability to predict if a cherry leaf is healthy or contains powdery mildew.
 	- We agreed with the client a degree of 97% accuracy.
-	- The client will then not supply the market with a product of compromised quality.
-	- The client will save time and money on powdery mildew identification and staff time and be able to effectively target compromised plants with specific compounds where 	necessary.
+# Wider benefits of the project
+	- Supplying the market with high quality cherries.
+	- The client will save money on the staff time to check for powdery mildew identification and be able to effectively target compromised plants with specific compounds where necessary.
 
 ## Hypothesis and how to validate?
 We suspect powdery mildew on the leaves of cherry trees have clear signs of infection, typically a leaf that may be shrivelled with white discolouration and/or spotting.
-A average image study can help to investigate it.
+	- An average image study can help to investigate it.
 
 Dataset Preparation:
 
@@ -50,11 +54,10 @@ If accuracy is low, investigate feature extraction, dataset quality, or other co
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
-- List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
 ### Business Requirement 1 ### Data Visualization
-	- Analyze the average images and variability (mean and standard deviation) for each class (healthy or powdery mildew).
-	- Analyse the differences between average healthy and average powdery mildew cherry leaves.
-    - Create an image montage for each class.
+	- Analyze and display the average images and variability (mean and standard deviation) for each class (healthy or powdery mildew)
+	- Display the differences between average healthy and average powdery mildew infected cherry leaf.
+    - Create an image montage for each, 'healthy' and 'unhealthy' leaves.
 
 ### Business Requirement 2 ### Classification
 	- Deliver an ML system that is capable of predicting whether a cherry leaf is healthy or contains powdery mildew to a 97% accuracy rate.
@@ -65,12 +68,12 @@ If accuracy is low, investigate feature extraction, dataset quality, or other co
 
 ## ML Business Case
 
-- In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
 * We want a ML model to predict if a leaf is infected with powdery mildew or not, based on historical image data. It is a supervised model, a 2-class, single-label, classification model. The data would align with a binary classifier, indicating whether a particular cherry leaf is healthy or contains powdery mildew.
 - The model input is a cherry leaf image and the model output is a prediction of whether the cherry leaf is healthy or contains powdery mildew.
 
 Heuristics: 
-The current diagnostic needs an experienced staff and lengthly inspection times across orchards to distinguish healthy or infected leaves. This process is not scalable.
+The current way to diagnose requires experienced staff and lengthly inspection times across orchards to distinguish healthy or infected leaves. This process is not scalable.
+
 * The training data to fit the model came from Kaggle. This dataset contains 4,208 images. We have extracted all images from this dataset and added to this with synthetic data.
 
 ## Dashboard Design (Streamlit App User Interface)
