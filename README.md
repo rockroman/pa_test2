@@ -30,7 +30,7 @@ Validation Steps:
 - Use the dataset to train a binary classification model.
 - Conduct image analysis to confirm visual differences.
 - Evaluate the model using metrics like accuracy, precision, recall, and F1 score, aiming for >97% accuracy.
-- Apply k-fold cross-validation to ensure robustness.
+- If classes (helathy vs. infected) are imbalanced we will apply StratifiedK-fold cross-validation to ensure each fold has a proportional representation of both classes.
 
 Dataset Preparation:
 
