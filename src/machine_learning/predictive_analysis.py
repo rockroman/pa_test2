@@ -14,7 +14,7 @@ def plot_predictions_probabilities(pred_proba, pred_class):
 
     prob_per_class = pd.DataFrame(
         data=[0, 0],
-        index={'Infected': 0, 'Uninfected': 1}.keys(),
+        index={'Infected': 1, 'Uninfected': 0}.keys(),
         columns=['Probability']
     )
     prob_per_class.loc[pred_class] = pred_proba
@@ -29,19 +29,26 @@ def plot_predictions_probabilities(pred_proba, pred_class):
         x='Diagnostic',
         y=prob_per_class['Probability'],
         range_y=[0, 1],
-        width=600, height=300, template='seaborn')
+        width=600, height=300, template='seaborn'
+        )
     st.plotly_chart(fig)
 
 
 def resize_input_image(img, version):
     """
-    Reshape image to average image size
+    Reshape image to average image size and ensure it has 3 channels (RGB).
     """
     image_shape = load_pkl_file(file_path=f"outputs/{version}/image_shape.pkl")
-    img_resized = img.resize((image_shape[1], image_shape[0]), Image.ANTIALIAS)
-    my_image = np.expand_dims(img_resized, axis=0)/255
-
+    
+    # Ensure image is RGB
+    if img.mode != "RGB":
+        img = img.convert("RGB")
+    
+    img_resized = img.resize((image_shape[1], image_shape[0]), Image.LANCZOS)  # Ensure correct resizing
+    my_image = np.expand_dims(img_resized, axis=0) / 255.0  # Normalize pixel values
+    
     return my_image
+
 
 
 def load_model_and_predict(my_image, version):
@@ -53,10 +60,8 @@ def load_model_and_predict(my_image, version):
 
     pred_proba = model.predict(my_image)[0, 0]
 
-    target_map = {v: k for k, v in {'Infected': 0, 'Not infected': 1}.items()}
-    pred_class = target_map[pred_proba > 0.5]
-    if pred_class == target_map[0]:
-        pred_proba = 1 - pred_proba
+    target_map = {1:"Infected", 0: "Not infected"}
+    pred_class = target_map[int(pred_proba > 0.5)]
 
     st.write(
         f"The predictive analysis indicates the leaf is "
