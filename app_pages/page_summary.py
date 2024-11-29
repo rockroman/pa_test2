@@ -3,8 +3,10 @@ import matplotlib.pyplot as plt
 
 
 def page_summary_body():
+    st.title("Cherry Tree Mildew Detection")
 
-    st.write("### Quick Project Summary")
+    st.write("### Quick Project Summary\n")
+    f"**This app uses machine learning to predict whether a cherry leaf is infected with powdery mildew.\n"
 
     st.info(
         f"**General Information**\n"
