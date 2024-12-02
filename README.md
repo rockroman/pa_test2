@@ -57,12 +57,14 @@ If accuracy is low, investigate feature extraction, dataset quality, or other co
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
-### Business Requirement 1 ### Visual Differentiation
+### Business Requirement 1 
+### Visual Differentiation
 - Generate visualizations comparing average healthy and infected leaves.
 - Create montages to highlight class differences.
 
 
-### Business Requirement 2 ### Classification
+### Business Requirement 2 
+### Classification
 - Develop a neural network model capable of distinguishing between healthy and infected leaves.
 - Target accuracy: ≥97% for effective real-world deployment.
 - Performance validation through k-fold cross-validation and confusion matrix analysis, identifying false positives/negatives to fine-tune the model.
@@ -167,44 +169,3 @@ Deploy lightweight versions of the model on mobile apps or IoT devices for in-fi
 
 3) Dataset Expansion:
 Extend the dataset to include other crops like apples and peaches, enabling broader applications across Farmy Foods' operations.
-
-
-
-
-Design documet example 
-Design document (Final)
-Page 1: Quick Project Summary
-Quick project summary
-General Information
-Malaria is a parasitic infection transmitted by the bite of an infected female Anopheles mosquito.
-A blood smear sample is collected, mixed with a reagent, and examined in the microscope. Visual criteria are used to detect malaria parasites.
-According to WHO, in 2019, there were an estimated 229 million cases of malaria worldwide and an estimated 409 thousand deaths due to this disease. Children <5 years are the most vulnerable group, accounting for 67% (274 thousand) of all malaria deaths worldwide in 2019.
-Project Dataset
-The available dataset contains 5643 out of +27 thousand images taken from the blood smear workflow (when a drop of blood is smeared on a glass slide) of parasitised or uninfected cells with malaria.
-Link to additional information (Readme file)
-Business requirements
-The client is interested in a study to differentiate between a parasite-contained and uninfected cell visually.
-The client is interested in telling whether a given cell contains malaria parasites or not.
-
-
-
-
-
-
- Page 2: Cells Visualizer
-It will answer business requirements 1
-Checkbox 1 - Difference between average and variability image
-Checkbox 2 - Differences between average parasitised and average uninfected cells
-Checkbox 3 - Image Montage
-Page 3: Malaria Detection
-Business requirement two information - "The client is interested in telling whether a given cell contains malaria parasite or not."
-Link to download a set of parasite-contained and uninfected cell images for live prediction.
-Create a user interface with a file uploader widget. The user should upload multiple malaria cell images. It will display the image and a prediction statement, indicating if the cell is infected or not with malaria and the probability associated with this statement.
-Table with the image name and prediction results.
-Download button to download table.
-Page 4: Project Hypothesis and Validation
-Block for each project hypothesis, describe the conclusion and how you validated it.
-Page 5: ML Prediction Metrics
-Label Frequencies for Train, Validation, and Test Sets
-Model History - Accuracy and Losses
-Model evaluation result
