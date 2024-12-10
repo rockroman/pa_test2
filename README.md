@@ -1,29 +1,81 @@
+READ ME
+
 ## Project Overview
 This project demonstrates how predictive analytics can optimize agricultural operations. The focus is on addressing a fictitious scenario where Farmy Foods faces powdery mildew issues in their cherry plantations, a key product in their portfolio. The project aims to minimize revenue loss from poor-quality produce and streamline the monitoring process, which is currently manual and unsustainable.
-
-## Dataset Content
-
-The dataset, sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves) contains 4,208 images of cherry leaves categorized as healthy or infected with powdery mildew, a fungal disease affecting many plants. 
-
-## Business Requirements
 
 The cherry plantation crop from Farmy & Foods is facing a challenge where their cherry plantations have been presenting powdery mildew. Currently, the process is manual verification if a given cherry tree contains powdery mildew. An employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. If there is powdery mildew, the employee applies a specific compound to kill the fungus. The time spent applying this compound is 1 minute. The company has thousands of cherry trees located on multiple farms across the country. As a result, this manual process is not scalable due to the time spent in the manual process inspection.
 
 To save time in this process, the IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
 
-The goal is to develop an ML-based solution to address powdery mildew in cherry plantations by:
-1) Differentiating visually between healthy and infected cherry leaves.
-2) Predicting if a cherry leaf is healthy or infected based on an image.
-3) Creating a dashboard for user interaction, rather than relying on API endpoints.
+## Business Case Understanding and Outcomes Required
+This project follows the CRISP-DM Workflow (Business Understanding, Data Understanding, Data Preparation, Modeling, Evaluation, Deployment). 
+
+we have decided that this project would benefit from a ML solution to inform the client whether or not cherry leaves are infected with powdery mildew.
+Data has already been collected and labelled and the data set is balanced for both classes, heathy and infected leaves.
+The client has requested a dashboard rather than relying on API endpoints, with the required business outputs:
+1) Differentiating visually between healthy and infected cherry leaves:
+An image montage for either healthy or leaves infected with powdery mildew.
+Visualization of the average image and standard deviation image for healthy and infected leaves
+Visualization of the difference between an average leaf infected with powery mildew and an average healthy leaf.
+2) Ability to predict quickly with a >97% accuracy if a cherry leaf is healthy or infected, based on an uploaded image.
 
 This initiative is scalable and could extend to other crops, enhancing operational efficiency and market quality.
+This project dataset is to be kept private.
 
-# Outcomes Required
-- The project aims to:
-- Provide a visual study differentiating healthy and infected leaves.
-- Achieve a model prediction accuracy of at least 97%.
+## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
-## Hypothesis and how to validate?
+We have identified 2 business requirements and the ML Business case:
+
+### Business Requirement 1 
+### Visual Differentiation
+- Generate visualizations comparing average healthy and infected leaves.
+- Create montages to highlight class differences.
+
+
+### Business Requirement 2 
+### Classification
+- Develop a neural network model capable of distinguishing between healthy and infected leaves.
+- Target accuracy: ≥97% for effective real-world deployment.
+- Performance validation through k-fold cross-validation and confusion matrix analysis, identifying false positives/negatives to fine-tune the model.
+
+## ML Business Case
+
+* We want a ML model to predict if a leaf is infected with powdery mildew or not, based on historical image data. It is a supervised model, a 2-class, single-label, classification model. The data would align with a binary classifier, indicating whether a particular cherry leaf is healthy or contains powdery mildew.
+- The model input is a cherry leaf image and the model output is a prediction of whether the cherry leaf is healthy or contains powdery mildew.
+
+Heuristics: 
+The current way to diagnose requires experienced staff and lengthly inspection times across orchards to distinguish healthy or infected leaves. This process is not scalable.
+
+### Epics and User Stories
+Following the Agile development principles we can create a workflow by dividing up the project. 
+
+Stream lit user stories:
+
+As a first time visitor i want to easily understand the organisations aims for the project
+
+As a returning visitor i want to be able to upload my images to the detector to be analysed and get a prediction
+
+STREAMLIT filters- image montage, average image and variability, differences in healthy and infected leaves (radio buttons or drop down.
+
+
+## Dataset Content
+
+The dataset, sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves) contains 4,208 images of cherry leaves categorized as healthy or infected with powdery mildew, a fungal disease affecting many plants. 
+We have extracted all images from this dataset and added to this with synthetic data.
+
+Does the data suggest a particular model such as regression, classification or clustering? 
+
+This project looks at cherry leaves and whether they are healthy or not. The data is alreafy labelled and therefore  are categorial. As this is a categorical variable then this is a classification problem. The metrics will be accuracy, recall, precision, F1 or specificity. As the data set class samples are equal and the cost of misclassification is low, this would be a good case for a model focussed on accuracy. Also as recal and precision are valued we could also use the F1 metric.
+
+Heuristics
+It would be worthwhile to test if the model could be trained to test greyscale 
+Soft max used over sigmoid for the reasons.. …
+confusion matrix
+The data is already labelled healthy or not
+
+## Hypothesis and how to validate
+
+## Data visualization, cleaning, and preparation.
 Hypothesis: Powdery mildew manifests visibly through signs like shriveling, white discoloration, or spotting on leaves.
 
 Validation Steps:
@@ -36,6 +88,8 @@ Dataset Preparation:
 
 Compile a labeled dataset of cherry tree leaves, categorized into "Healthy" and "Infected" classes.
 Ensure the dataset is diverse, representing various lighting conditions, angles, and leaf conditions. If the dataset is too small create extra images.
+
+## Model training, optimization and validation
 
 Model Training and Testing:
 Train a neural network model on the dataset using a supervised learning approach.
@@ -55,51 +109,29 @@ Hypothesis Support:
 If the model achieves high accuracy (e.g., >97%) in distinguishing healthy and infected leaves, the hypothesis is supported.
 If accuracy is low, investigate feature extraction, dataset quality, or other confounding variables.
 
-## The rationale to map the business requirements to the Data Visualisations and ML tasks
-
-### Business Requirement 1 
-### Visual Differentiation
-- Generate visualizations comparing average healthy and infected leaves.
-- Create montages to highlight class differences.
 
 
-### Business Requirement 2 
-### Classification
-- Develop a neural network model capable of distinguishing between healthy and infected leaves.
-- Target accuracy: ≥97% for effective real-world deployment.
-- Performance validation through k-fold cross-validation and confusion matrix analysis, identifying false positives/negatives to fine-tune the model.
-
-
-## ML Business Case
-
-* We want a ML model to predict if a leaf is infected with powdery mildew or not, based on historical image data. It is a supervised model, a 2-class, single-label, classification model. The data would align with a binary classifier, indicating whether a particular cherry leaf is healthy or contains powdery mildew.
-- The model input is a cherry leaf image and the model output is a prediction of whether the cherry leaf is healthy or contains powdery mildew.
-
-Heuristics: 
-The current way to diagnose requires experienced staff and lengthly inspection times across orchards to distinguish healthy or infected leaves. This process is not scalable.
-
-* The training data to fit the model came from Kaggle. This dataset contains 4,208 images. We have extracted all images from this dataset and added to this with synthetic data.
-
+Dashboard planning, designing, and development.
 ## Dashboard Design (Streamlit App User Interface)
 
 ### Page 1: Project Summary
 * Quick project summary
-	* General Information
-		* What is Powdery mildew and how does it present itself in cherry tree leaves.
-		* Usually identification of infected leaves is a manual process conducted by the employee of the orchard.
-		* Stats on numbers of trees infected.
-	* Project Dataset
-		* The available dataset contains 4k images of leaves.
-	* Link to addition information
-	* Business requirements
-		*  The client is interested in ...
-		*  The client is interested to know...
+    * General Information
+        * What is Powdery mildew and how does it present itself in cherry tree leaves.
+        * Usually identification of infected leaves is a manual process conducted by the employee of the orchard.
+        * Stats on numbers of trees infected.
+    * Project Dataset
+        * The available dataset contains 4k images of leaves.
+    * Link to addition information
+    * Business requirements
+        *  The client is interested in ...
+        *  The client is interested to know...
 
 ### Page 2: Leaf Visualiser
 * It will answer business requirement 1
-	* Checkbox 1 - Difference between average and variability image
-	* Checkbox 2 - Differences between average mildew and average healthy leaves
-	* Checkbox 3 - Image Montage
+    * Checkbox 1 - Difference between average and variability image
+    * Checkbox 2 - Differences between average mildew and average healthy leaves
+    * Checkbox 3 - Image Montage
 
 ### Page 3: Mildew Detector
 * Business requirement 2 information - "The client is interested to tell whether a leaf is infected with powdery mildew or not.
@@ -120,7 +152,14 @@ The current way to diagnose requires experienced staff and lengthly inspection t
 
 - You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
 
-## Deployment
+## Set Up Process and Deployment
+Dashboard deployment and release.
+### Set up the project
+Create a repository and download dependencies.
+
+## Download the dataset from Kaggle.
+Ensure you have an authentication key (JSON file) generated from your Kaggle account. Using the kaggle API endpoint you will use this to download and extract the dataset.
+Drag and drop the JSON file into the workspace. See the DataCollection Jupyter notebook for further instructions.
 
 ### Heroku
 
@@ -142,8 +181,11 @@ The current way to diagnose requires experienced staff and lengthly inspection t
 
 ## Credits
 
-- In this section, you need to reference where you got your content, media and from where you got extra help. It is common practice to use code from other repositories and tutorials. However, it is necessary to be very specific about these sources to avoid plagiarism.
-- You can break the credits section up into Content and Media, depending on what you have included in your project.
+TensorBoard
+https://github.com/tensorflow/tensorboard/blob/master/README.md
+Tutorial:  https://www.tensorflow.org/tensorboard/get_started
+
+Code Institute walkthough project 01
 
 ### Content
 
