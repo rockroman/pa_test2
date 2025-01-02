@@ -40,7 +40,7 @@ We have identified 2 business requirements and the ML Business case:
 
 ## ML Business Case
 
-* We want a ML model to predict if a leaf is infected with powdery mildew or not, based on historical image data. It is a supervised model, a 2-class, single-label, classification model. The data would align with a binary classifier, indicating whether a particular cherry leaf is healthy or contains powdery mildew.
+* We want to use a deep learning - convolutional neural network ML model to predict if a leaf is infected with powdery mildew or not, based on historical image data. It is a supervised model, a 2-class, single-label, classification model. The data would align with a binary classifier, indicating whether a particular cherry leaf is healthy or contains powdery mildew.
 - The model input is a cherry leaf image and the model output is a prediction of whether the cherry leaf is healthy or contains powdery mildew.
 
 Heuristics: 
@@ -71,7 +71,8 @@ Heuristics
 It would be worthwhile to test if the model could be trained to test greyscale 
 Soft max used over sigmoid for the reasons.. …
 confusion matrix
-The data is already labelled healthy or not
+
+The data is already labelled healthy or not and we do not need to do any furhter feature engineering as we are using a deep neural network.
 
 ## Hypothesis and how to validate
 
